@@ -195,11 +195,13 @@ namespace GitHub.Runner.Worker.Handlers
             container.MountVolumes.Add(new MountVolume(tempWorkflowDirectory, "/github/workflow"));
             container.MountVolumes.Add(new MountVolume(tempFileCommandDirectory, "/github/file_commands"));
             container.MountVolumes.Add(new MountVolume(defaultWorkingDirectory, "/github/workspace"));
+            container.MountVolumes.Add(new MountVolume(tempDirectory, "/github"));
 
             container.AddPathTranslateMapping(tempHomeDirectory, "/github/home");
             container.AddPathTranslateMapping(tempWorkflowDirectory, "/github/workflow");
             container.AddPathTranslateMapping(tempFileCommandDirectory, "/github/file_commands");
             container.AddPathTranslateMapping(defaultWorkingDirectory, "/github/workspace");
+            container.AddPathTranslateMapping(tempDirectory, "/github");
 
             container.ContainerWorkDirectory = "/github/workspace";
 
